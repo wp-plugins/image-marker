@@ -9,7 +9,7 @@
  * Plugin Name:       Leaflet Maps Marker Image Extension
  * Plugin URI:        http://L6.org/
  * Description:       Extension to Leaflet Maps Marker to make markers from images.
- * Version:           1.0.0
+ * Version:           1.1
  * Author:            Neil Boyd
  * Author URI:        http://L6.org/
  * License:           GPL-2.0+

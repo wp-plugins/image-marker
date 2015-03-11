@@ -27,9 +27,9 @@ class Image_Marker_Public {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $image_marker    The ID of this plugin.
+	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
-	private $image_marker;
+	private $plugin_name;
 
 	/**
 	 * The version of this plugin.
@@ -44,12 +44,12 @@ class Image_Marker_Public {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @var      string    $image_marker       The name of the plugin.
+	 * @var      string    $plugin_name       The name of the plugin.
 	 * @var      string    $version    The version of this plugin.
 	 */
-	public function __construct( $image_marker, $version ) {
+	public function __construct( $plugin_name, $version ) {
 
-		$this->image_marker = $image_marker;
+		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
 	}
@@ -73,7 +73,7 @@ class Image_Marker_Public {
 		 * class.
 		 */
 
-		// wp_enqueue_style( $this->image_marker, plugin_dir_url( __FILE__ ) . 'css/image-marker-public.css', array(), $this->version, 'all' );
+		// wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/image-marker-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,7 +96,7 @@ class Image_Marker_Public {
 		 * class.
 		 */
 
-		// wp_enqueue_script( $this->image_marker, plugin_dir_url( __FILE__ ) . 'js/image-marker-public.js', array( 'jquery' ), $this->version, false );
+		// wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/image-marker-public.js', array( 'jquery' ), $this->version, false );
 
 	}
 

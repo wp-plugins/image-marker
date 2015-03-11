@@ -20,7 +20,7 @@ class NextGen_Image_Marker {
 
             if ( $picture != FALSE) {
 
-	            $storage = C_Component_Registry::get_instance()->get_utility('I_Gallery_Storage');
+	            $storage = C_Gallery_Storage::get_instance();
                 $file = $storage->get_image_abspath( $id );
 
                 $data = File_Exif_Reader::read_exif_data( $file );
@@ -60,8 +60,8 @@ class NextGen_Image_Marker {
         $h = $lmm_options['defaults_marker_popups_maxheight'];
 
         // generate thumbnail image
-        $storage   = C_Component_Registry::get_instance()->get_utility('I_Gallery_Storage');
-        $dynthumbs   = C_Component_Registry::get_instance()->get_utility('I_Dynamic_Thumbnails_Manager');
+        $storage   = C_Gallery_Storage::get_instance();
+        $dynthumbs   = C_Dynamic_Thumbnails_Manager::get_instance();
         $params = array( 'width' => $w, 'height' => $h );
         $size = $dynthumbs->get_size_name($params);
         $thumbnail = $storage->generate_image_size($picture->pid, $size);

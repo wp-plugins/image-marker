@@ -27,9 +27,9 @@ class Image_Marker_Admin {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $image_marker    The ID of this plugin.
+	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
-	private $image_marker;
+	private $plugin_name;
 
 	/**
 	 * The version of this plugin.
@@ -44,12 +44,12 @@ class Image_Marker_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @var      string    $image_marker       The name of this plugin.
+	 * @var      string    $plugin_name       The name of this plugin.
 	 * @var      string    $version    The version of this plugin.
 	 */
-	public function __construct( $image_marker, $version ) {
+	public function __construct( $plugin_name, $version ) {
 
-		$this->image_marker = $image_marker;
+		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
 	}
@@ -73,7 +73,7 @@ class Image_Marker_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->image_marker, plugin_dir_url( __FILE__ ) . 'css/image-marker-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/image-marker-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,12 +96,12 @@ class Image_Marker_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->image_marker, plugin_dir_url( __FILE__ ) . 'js/image-marker-admin.js', array( 'jquery' ), $this->version, false );
-		$nonce = wp_create_nonce( $this->image_marker );
-		wp_localize_script( $this->image_marker, 'my_ajax_obj', array(
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/image-marker-admin.js', array( 'jquery' ), $this->version, false );
+		$nonce = wp_create_nonce( $this->plugin_name );
+		wp_localize_script( $this->plugin_name, 'my_ajax_obj', array(
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
 			'nonce'    => $nonce,
-			'error_message' => __( 'Image has no location data', $this->image_marker )
+			'error_message' => __( 'Image has no location data', $this->plugin_name )
 		) );
 
 	}
@@ -160,8 +160,8 @@ class Image_Marker_Admin {
 	 */
 	function render_map_marker_action_link( $class, $id )
 	{
-		$label	= esc_html__( 'Marker', $this->image_marker );
-		$title	= esc_attr(__( 'Marker', $this->image_marker ));
+		$label	= esc_html__( 'Marker', $this->plugin_name );
+		$title	= esc_attr(__( 'Marker', $this->plugin_name ));
 		return "<a class='{$class}' data-id='{$id}' href='#' title='{$title}'>{$label}</a>";
 	}
 
@@ -172,7 +172,7 @@ class Image_Marker_Admin {
 	 */
 	function image_marker_create() {
 
-		check_ajax_referer( $this->image_marker );
+		check_ajax_referer( $this->plugin_name );
 
 		$result = Media_Library_Marker::read_file_data( $_REQUEST["id"] );
 
@@ -187,7 +187,7 @@ class Image_Marker_Admin {
 	 */
 	function ngg_image_marker_create() {
 
-		check_ajax_referer( $this->image_marker );
+		check_ajax_referer( $this->plugin_name );
 
 		$result = NextGen_Image_Marker::read_file_data( $_REQUEST["id"] );
 
