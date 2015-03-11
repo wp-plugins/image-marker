@@ -60,6 +60,13 @@ class Media_Library_Marker {
         // full size image
         $url = wp_get_attachment_url( $id );
 
+        // if no thumbnail then return full image
+        if ( FALSE == $thumbnail ) {
+            $meta = wp_get_attachment_metadata($id);
+            $tag = get_image_tag( $id, $meta['file'], $meta['file'], 'one' );
+            return "<a href='{$url}'>{$tag}</a>";
+        }
+
         // thumbnail image url
         if ( empty($thumbnail['url']) && !empty($thumbnail['file']) ) {
             $thumbnail['url'] = path_join( dirname($url), $thumbnail['file'] );

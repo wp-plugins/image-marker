@@ -44,7 +44,7 @@ class Image_Marker {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $image_marker    The string used to uniquely identify this plugin.
+	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
 	 */
 	protected $plugin_name;
 
