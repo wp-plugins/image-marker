@@ -3,7 +3,7 @@ Contributors: neilb27
 Donate link: http://L6.org/
 Tags: maps marker, gallery, nextgen, media, exif
 Requires at least: 3.7
-Tested up to: 4.1.1
+Tested up to: 4.2
 Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
